@@ -175,7 +175,7 @@ namespace DatabaseServer
             user.username = Helper.USERNAME;
             user.password = txtUMPassword.Text.ToString().Trim();
             var json = JsonConvert.SerializeObject(user);
-            websocket.Send("D" + json);
+            websocket.Send("G" + json);
         }
     }
 }

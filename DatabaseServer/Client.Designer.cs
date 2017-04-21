@@ -63,15 +63,15 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenarate = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlAuthonication = new System.Windows.Forms.Panel();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtUMPassword = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl.SuspendLayout();
             this.tabCraete.SuspendLayout();
             this.tabDelete.SuspendLayout();
@@ -453,21 +453,10 @@
             this.tabPage1.Text = "Usser Management";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(509, 3);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(107, 38);
-            this.btnLogout.TabIndex = 23;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // pnlAuthonication
             // 
             this.pnlAuthonication.Controls.Add(this.lblUsername);
-            this.pnlAuthonication.Controls.Add(this.btnLogin);
+            this.pnlAuthonication.Controls.Add(this.btnUpdateProfile);
             this.pnlAuthonication.Controls.Add(this.label12);
             this.pnlAuthonication.Controls.Add(this.txtUMPassword);
             this.pnlAuthonication.Controls.Add(this.label13);
@@ -476,16 +465,26 @@
             this.pnlAuthonication.Size = new System.Drawing.Size(403, 148);
             this.pnlAuthonication.TabIndex = 24;
             // 
-            // btnLogin
+            // lblUsername
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(216, 96);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(182, 38);
-            this.btnLogin.TabIndex = 10;
-            this.btnLogin.Text = "Update Profile";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(178, 15);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(100, 22);
+            this.lblUsername.TabIndex = 25;
+            this.lblUsername.Text = "Username";
+            // 
+            // btnUpdateProfile
+            // 
+            this.btnUpdateProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateProfile.Location = new System.Drawing.Point(216, 96);
+            this.btnUpdateProfile.Name = "btnUpdateProfile";
+            this.btnUpdateProfile.Size = new System.Drawing.Size(182, 38);
+            this.btnUpdateProfile.TabIndex = 10;
+            this.btnUpdateProfile.Text = "Update Profile";
+            this.btnUpdateProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
             // 
             // label12
             // 
@@ -516,15 +515,16 @@
             this.label13.TabIndex = 7;
             this.label13.Text = "Username";
             // 
-            // lblUsername
+            // btnLogout
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(178, 15);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(100, 22);
-            this.lblUsername.TabIndex = 25;
-            this.lblUsername.Text = "Username";
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(509, 3);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(107, 38);
+            this.btnLogout.TabIndex = 23;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // Client
             // 
@@ -534,6 +534,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Client";
             this.Text = "Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Client_FormClosing);
             this.tabControl.ResumeLayout(false);
             this.tabCraete.ResumeLayout(false);
             this.tabCraete.PerformLayout();
@@ -592,7 +593,7 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel pnlAuthonication;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnUpdateProfile;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtUMPassword;
         private System.Windows.Forms.Label label13;

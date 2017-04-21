@@ -74,6 +74,14 @@ namespace DatabaseServer
                 Invoke(new Action(() => txtUSemis.Text = seletedObj[0].semester));
                 Invoke(new Action(() => txtUName.Text = seletedObj[0].name));
             }
+            else if(str.Contains("User Updated"))
+            {
+                MessageBox.Show(str);
+            }
+            else if (str.Contains("User Not Updated"))
+            {
+                MessageBox.Show(str);
+            }
 
             else if (str.Contains("replay"))
             {
@@ -164,18 +172,25 @@ namespace DatabaseServer
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
             
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+       
+
+        private void btnUpdateProfile_Click(object sender, EventArgs e)
         {
             User user = new User();
             user.id = Helper.USERID;
             user.username = Helper.USERNAME;
             user.password = txtUMPassword.Text.ToString().Trim();
             var json = JsonConvert.SerializeObject(user);
-            websocket.Send("G" + json);
+            websocket.Send("P" + json);
+        }
+
+        private void Client_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
